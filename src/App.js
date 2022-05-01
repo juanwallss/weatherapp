@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+let apiId = '6f07e40cdcac15e8361b67b4c303c179';
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=6f07e40cdcac15e8361b67b4c303c179`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiId}`
 const searchLocation = (event) => {
   if(event.key === 'Enter'){
   axios.get(url).then((response) => {
@@ -40,17 +41,18 @@ const searchLocation = (event) => {
           </div>   
         </div>        
         <div className="bottom">
+         
           <div className="feels">
             <p><strong>{data.main ? parseInt(data.main.feels_like -273) + 'ºC' : null}</strong></p>
-            <p>Feels Like</p>
+            <p>{data.main ? "Feels Like" : null}</p>
           </div>
           <div className="humidity">
             <p><strong>{data.main ? data.main.humidity + '%' : null}</strong></p>
-            <p>Humidity</p>
+            <p>{data.main ? "Humidity" : null}</p>
           </div>
           <div className="wind">
             <p><strong>{data.wind ? parseInt(data.wind.speed * 1.6093440) +"KMH": null}</strong></p>
-            <p>Wind</p>
+            <p>{data.main ? "Wind" : null}</p>
           </div>
         </div>
       </div>
