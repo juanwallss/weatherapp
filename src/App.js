@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-let apiId = '6f07e40cdcac15e8361b67b4c303c179';
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
